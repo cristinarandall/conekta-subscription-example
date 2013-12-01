@@ -10,8 +10,8 @@
 GMAIL_USERNAME: Your_Username
 GMAIL_PASSWORD: Your_Password
 ADMIN_NAME: First User
-ADMIN_EMAIL: user@example.com
+ADMIN_EMAIL: cristina@conekta.io
 ADMIN_PASSWORD: changeme
 ROLES: [admin, silver, gold, platinum]
-STRIPE_API_KEY: Your_Stripe_API_key
-STRIPE_PUBLIC_KEY: Your_Stripe_Public_Key
+CONEKTA_API_KEY: "key_bPW6QwU2m1SkPnUh"
+CONEKTA_PUBLIC_KEY: "key_PLi1RZCxDc7znfkS"
