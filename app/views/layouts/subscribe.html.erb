@@ -1,0 +1,664 @@
+
+
+
+<!doctype html>
+<html>
+<head prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# gumroad: http://ogp.me/ns/fb/gumroad#"><script type="text/javascript">var NREUMQ=NREUMQ||[];NREUMQ.push(["mark","firstbyte",new Date().getTime()]);</script>
+<title>Ejemplos Pagos Recurrentes</title>
+
+<link href="https://d1wzu4qct23er4.cloudfront.net/assets/buyers-589d2d351862fb1110f4f6b0dbb6db29.css" media="screen" rel="stylesheet" type="text/css" />
+
+
+
+<!--[if lt IE 10]>
+<link href="https://d1wzu4qct23er4.cloudfront.net/assets/ie-235bce4fd29f9dbda4131d1bc8e928dd.css" media="screen" rel="stylesheet" type="text/css" />
+<![endif]-->
+
+<meta content="<%= ENV["CONEKTA_PUBLIC_KEY"] %>" name="conekta-key" />
+<meta content="authenticity_token" name="csrf-param" />
+<meta content="jUIo6vpmQKVIh9gN5y0ZqNq8Cgrm4tKUC24bti5D1yA=" name="csrf-token" />
+
+<meta name="viewport" content="initial-scale = 1.0, user-scalable = no, width = device-width">
+
+<link rel="shortcut icon" href="/assets/favicon.png">
+
+
+
+<style>
+
+
+.credit_card_holder .credit_card label {
+color: rgba(0, 0, 0, 0.30000000000000002);
+}
+.credit_card_holder .credit_card .conekta-card-info h4 {
+font-weight: bold;
+font-size: 18px;
+padding: 10px;
+line-height: 21px;
+margin: 0;
+}
+
+.credit_card_holder .credit_card label {
+width: 130px;
+}
+
+
+.credit_card_holder .credit_card .conekta-card-info {
+background: #e3e3e3;
+margin-top: 10px;
+color: #252a2e;
+text-shadow: 0 1px 0 white;
+overflow: hidden;
+}
+
+button.button-primary.button-block.i_want_this_button{
+color: white;
+border-bottom-color: #1c8c8c;
+border-left-color: #22a8a8;
+border-right-color: #22a8a8;
+border-top-color: #30c9c9;
+background-image: linear-gradient(bottom, rgb(30,166,168) 0%, rgb(27,184,184) 100%);
+background-image: -o-linear-gradient(bottom, rgb(30,166,168) 0%, rgb(27,184,184) 100%);
+background-image: -moz-linear-gradient(bottom, rgb(30,166,168) 0%, rgb(27,184,184) 100%);
+background-image: -webkit-linear-gradient(bottom, rgb(30,166,168) 0%, rgb(27,184,184) 100%);
+background-image: -ms-linear-gradient(bottom, rgb(30,166,168) 0%, rgb(27,184,184) 100%);
+background-image: -webkit-gradient( linear, left bottom, left top, color-stop(0, rgb(30,166,168)), color-stop(1, rgb(27,184,184)) );
+}
+
+
+#product_page, #user_page {
+background: #F2F5F7;
+}
+
+
+.top-bar {
+background: none;
+}
+
+.envelope {
+background: none;
+}
+
+.credit_card_holder .credit_card .conekta-card-info {
+background: #e3e3e3;
+margin-top: 10px;
+color: #252a2e;
+text-shadow: 0 1px 0 white;
+overflow: hidden;
+}
+
+ .conekta-card-info span {
+display:none;
+}
+</style>
+
+    <%= javascript_include_tag "application" %>
+    <%= csrf_meta_tags %>
+    <%= yield(:head) %>
+
+<script src="https://d1wzu4qct23er4.cloudfront.net/assets/core_bundle-b477d18bc7b3655a0bae54db8a3974b6.js" type="text/javascript"></script>
+
+<!-- English is included in common_bundle.js -->
+<script src="https://d1wzu4qct23er4.cloudfront.net/assets/i18n/es-3d6c319a4da787ba6bd8e913c0a048ad.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+  I18n.defaultLocale = "en";
+  I18n.locale = "es";
+  I18n.fallbacks = true; // It fallbacks to defaultLocale by default.
+</script>
+
+</head>
+
+<body id="product_page" class="    responsive">
+
+<div id="fb-root"></div>
+
+
+
+<div id='legacy-modal-container' class="modal-container">
+<div class="background"></div>
+
+</div>
+
+
+<div class="top-bar"></div>
+
+
+
+<div id="flash-message"></div>
+
+
+
+<div class="product-panel-container js-product-panel-container">
+<div class="product-panel-module purchase-flow">
+<h4>Flujo de compra</h4>
+<ol class="js-purchase-steps steps">
+<li class="active">
+<strong>1. <a href="#" class="js-product-preview-trigger">Vista previa del producto</a></strong>
+<div class="step-options padded">
+  <select class="js-i-want-this-choice" id="i-want-this-choice" name="i-want-this-choice"><option value="i_want_this_prompt">¡Quiero esto!</option>
+<option value="buy_this_prompt">Buy this</option>
+<option value="pay_prompt">Pagar</option>
+<option value="donate_prompt">Donar</option></select>
+    <div class="product-info url">
+      <form accept-charset="UTF-8" action="/links/LZdKN" class="edit_link" data-id="LZdKN" id="js-edit-attributes-form" method="post"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="&#x2713;" /><input name="authenticity_token" type="hidden" value="jUIo6vpmQKVIh9gN5y0ZqNq8Cgrm4tKUC24bti5D1yA=" /></div>
+	<ul>
+	  <li class="summary">
+	    <input id="link_custom_summary" name="link[custom_summary]" size="30" type="text" value="Una suscripción mensual. " />
+	  </li>
+	  <li><span><input class="js-custom-attr-label" id="link_custom_attribute_names" name="link[custom_attribute_names]" placeholder="Attribute" type="text" /></span> <strong><input class="js-custom-attr-value" id="link_custom_attribute_values" name="link[custom_attribute_values]" placeholder="Value" type="text" /></strong></li>
+	</ul>
+</form>            </div>
+</div>
+</li> 
+<li>
+<strong>2. <a href="#" class="js-payment-form-trigger">Forma de pago</a></strong>
+</li> 
+<li>
+<strong>3. <a href="#" class="js-receipt-trigger">Recibo</a></strong>
+<div class="step-options">
+  <textarea name="link[custom_receipt]" placeholder="Thanks for your support." class="js-receipt-custom-text-trigger"></textarea>
+</div>
+</li>
+</ol>
+<button type="submit" class="button-primary button-block js-update-product">Actualizar</button>
+</div>
+
+<div id="product-panel" class="product-panel-module">
+<h4>Estilo <a href="/products/LZdKN/edit">Más &rarr;</a></h4>
+
+<form accept-charset="UTF-8" action="https://gumroad.com/settings" class="formtastic user" data-grupload-url="https://gumroad.com/uploads" data-s3-url="https://s3.amazonaws.com/gumroad" id="product_panel_form" method="post" novalidate="novalidate"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="&#x2713;" /><input name="authenticity_token" type="hidden" value="jUIo6vpmQKVIh9gN5y0ZqNq8Cgrm4tKUC24bti5D1yA=" /></div>
+<ul class="js-product-panel-list">
+
+<li class="customization">
+  <h5>Colores</h5>
+
+
+  <ul>
+    <li>Resaltar <input type="text" id="highlight_color" class="color-input" name="user[highlight_color]" value="#36a9ae" /></li>
+    <li>Fondo <input type="text" id="background_color" class="color-input" name="user[background_color]" value="#efefe9" /></li>
+  </ul>
+</li>
+
+<li class="customization">
+  <h5>Imagen de fondo</h5>
+    <p>
+      <label for='file' id="background_image_picker" class="js-changeable" data-has-background="false">
+	Añadir
+      </label>
+    </p>
+    <p>
+      <a href="#" class="js-changeable soft-hidden"
+	  id="background_image_remove">Eliminar
+      </a>
+    </p>
+  <p>
+    <span class="js-titled-p soft-hidden">
+      Fondo en mosaico
+      <input checked="checked" id="tiling-checkbox" name="user[background_tiles]" type="checkbox" value="1" />
+    </span>
+  </p>
+  <input name="file" type="file" id='file' />
+</li>
+</ul>
+<button type="submit" class="js-submit-button button-primary button-block">Actualizar</button>
+</form>  </div>
+</div>
+
+
+<div id="wrapper" data-render-alternative="false">
+
+
+
+<noscript>
+<div id="javascript-notice"><strong>Se requiere JavaScript para comprar este producto. </strong>Activa JavaScript en tus ajustes de navegador y actualiza esta página para continuar. </div>
+</noscript>
+
+
+<div class="relative">
+<div id="sharing" class="soft-hidden">
+
+
+<span class="facebook-count soft-hidden"></span>
+
+<script>
+$(window).load(function() {
+!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");
+});
+</script>
+</div>
+<!--
+<div id="mobile-header" class="soft-hidden"></div>
+-->
+<div class="buyer-bar-container js-bundle-button soft-hidden" id="login" data-user="">
+<div class="buyer-bar">
+<div class="js-buyer-bar-content"></div>
+</div>
+
+<div class="clear"></div>
+
+<div class="js-bundle-tool-tip bundle-tool-tip relative soft-hidden">
+<ul class="bundled-product-list js-bundled-product-list"></ul>
+
+<div class="bundle-checkout-form js-bundle-checkout-form relative soft-hidden">
+<form accept-charset="UTF-8" action="" class="purchase_form formtastic purchase" method="post" novalidate="novalidate"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="&#x2713;" /><input name="authenticity_token" type="hidden" value="jUIo6vpmQKVIh9gN5y0ZqNq8Cgrm4tKUC24bti5D1yA=" /></div>
+<div class="envelope small">
+  <p class="email-p relative">
+    <input type="email" placeholder="Tu dirección de correo electrónico" name="email" class="first email required" />
+  </p>
+</div>
+
+<div style="opacity:1;" class="credit_card_holder small">
+<div class="card_error_popup hidden"><span class="message"> </span><span class="card_error_popup_arrow arrow"></span></div>
+<div class="remembered credit_card test_card soft-hidden">
+<div class="conekta-card-info ">
+<span class="generic_card card_icon flipped" style="opacity: 1;"></span>
+<h4>Detalles del pago</h4>
+</div>
+<p>
+<div class="center-outside-div">
+  <div class="center-inside-div">
+    <span class="preset_cc_input preset_cc_number">&middot;&middot;&middot;&middot; &middot;&middot;&middot;&middot; &middot;&middot;&middot;&middot; 4242</span>
+  </div>
+</div>
+</p>
+
+<span class="test_card_notice">Probar tarjeta</span>
+
+<p class="expiry_date_p">
+<label for="expiry_month" class="preset">Válido hasta</label>
+<span class="preset_cc_input">05/14</span>
+</p>
+</div>
+
+<!-- SAVED CARD -->
+<div class="remembered credit_card saved_card soft-hidden">
+<div class="stripe-card-info">
+<span class=" card_icon flipped" style="opacity: 1;"></span>
+<h4>Detalles del pago</h4>
+</div>
+
+<p>
+<div class="center-outside-div">
+<div class="center-inside-div">
+  <span class="preset_cc_input preset_cc_number"></span>
+</div>
+</div>
+</p>
+
+<a href="#" class="use_different_card">¿Usas una tarjeta diferente?</a>
+
+<p class="expiry_date_p">
+<label for="expiry_month" class="preset">Válido hasta</label>
+<span class="preset_cc_input"></span>
+</p>
+</div>
+
+<!--- NEW CARD -->
+<div class="new-card credit_card  ">
+<div class="conekta-card-info">
+<div class="cards">
+<span class="generic_card card_icon selected_card_icon flipped"></span>
+<span class="visa card_icon placeholder_card_icon" style="opacity: 1;"></span>
+<span class="mastercard card_icon placeholder_card_icon" style="opacity: 1;"></span>
+<span class="amex card_icon placeholder_card_icon" style="opacity: 1;"></span>
+<span class="jcb card_icon placeholder_card_icon" style="opacity: 1;"></span>
+<span class="fade"></span>
+</div>
+
+<h4>Detalles del pago</h4>
+</div>
+
+<p>
+  <span class="keep-on-file-notice">
+    <input type="checkbox" name="save_card" title="Save card to account" checked="checked" />
+    <label for="save_card">Guardar en archivo</label>
+  </span>
+<label style="width:150px;" for="cc_number">Número de tarjeta</label>
+<span class="cc_number_security_indicator"></span>
+<span class="cc_security_blurb">No guardamos ninguna información confidencial de tu tarjeta de crédito en nuestros archivos a menos que nos los pidas después de haber finalizado esta compra. </span>
+
+
+<input type="tel" pattern="\d*" x-autocompletetype="cc-number" placeholder="1234 5678 9012 3456" data-conekta="card[number]" maxlength="19" class="cc_number numeric-spaces required" />
+
+</p>
+
+<p class="expiry_date_p">
+<label for="expiry_date">Fecha de caducidad</label>
+<input type="tel" pattern="\d*" x-autocompletetype="cc-exp" placeholder="MM/YY" data-conekta="card[exp_year]" class="expiry_date numeric required" />
+</p>
+
+<p class="cv_code_p">
+<label for="cv_code">Código CVV</label>
+<input type="tel" pattern="\d*" x-autocompletetype="cc-csc" placeholder="123" autocomplete="off" data-conekta="card[cvc]" maxlength="4" class="cv_code numeric required" />
+</p>
+</div>
+</div>
+
+
+<div class="pay_button_container">
+  <button class="button button-primary pay_button small js-bundle-pay-trigger">Pagar</button>
+</div>
+</form>
+<div class="receipt_container small">
+<div class="receipt_hole"></div>
+<div class="receipt_shadow"></div>
+<div class="receipt">
+<h4>
+¡Gracias!
+<div class="clear"></div>
+</h4>
+
+<ul class="receipt-entries"></ul>
+
+<div class="js-receipt-custom-text soft-hidden">
+<p> 
+
+</p>
+</div>
+
+
+<a href="#" class="js-twitter-share-trigger button button-social-twitter button-plain button-small js-track-product-click-event" data-product-event-name="twitter_share_receipt" target="_blank" data-old-price="" data-share-text=""><i class='icn auth twitter'></i>Tweet</a>
+
+<a href="#" class="js-facebook-share-trigger button button-social-facebook button-plain button-small js-track-product-click-event" data-message="Shared!" data-product-event-name="facebook_share_receipt"><i class='icn auth facebook'></i>Share</a>
+
+<div class="receipt_bottom"></div>
+</div> <!-- receipt -->
+
+<div class="under-receipt-notices soft-hidden">
+<p class="emailed-link-notice">Pueden enviarte un correo electrónico en el futuro. <a href="#" class="unsubscribe_link">Cancelar la inscripción</a></p>
+</div>
+</div> <!-- receipt container -->
+
+</div>
+</div>
+</div>
+
+<div class="product-row">
+
+<div class="product popped subscription " data-charitable="false" data-description="" data-extra-info-required="true" data-general-permalink="LZdKN" data-is-preorder="false" data-name="Programming Class" data-preview-url="https://s3.amazonaws.com/gumroad/files/bf938160cd2338fb49cf67171c1d6f63/original/tumblr.jpg" data-price-cents="500" data-price="$5/mes" data-seller-google-analytics-id="null" data-subscription="true" data-unique-permalink="LZdKN" itemscope="itemscope" itemtype="http://schema.org/Product">
+<h2 class="product-price-tag"
+itemprop="offers"
+itemscope
+itemtype="http://schema.org/Offer"
+title="Se te cobrará una vez al mes, a partir de hoy. "
+><strong class="price"
+data-single-unit="false"
+data-customizable-price="false"
+data-subscription-duration="/mes"
+data-currency="$"
+itemprop="price"
+>$5/mes</strong>
+<span class="old-price soft-hidden"></span>
+</h2>
+
+
+<div class="product-main relative">
+<div
+data-preview=true
+class="preview-container  " >
+
+
+
+<div class="image-preview-container ">
+<img src="https://s3.amazonaws.com/gumroad/files/bf938160cd2338fb49cf67171c1d6f63/original/tumblr.jpg" class="preview" itemprop="image" style="max-width: 500px; " />
+</div>
+
+
+
+<div class="preview-shadow"></div>
+</div>
+
+
+<div class="product-information">  
+<div class="products-left-container"><span class="products-left"></span></div>
+
+<div class="product-content">
+<div class="description-container">
+<h1 itemprop="name"><strong>Programming Class</strong></h1>
+</div>
+
+<div class="want-container">
+<div class="actions-container">
+<div class="territory_blocked soft-hidden not-for-sale-notice">Lo sentimos, este artículo no está disponible en tu localización. </div>
+<div class="none-remaining-notice not-for-sale-notice soft-hidden">AGOTADO</div>
+  <div class="i-want-this-container">
+<div class="rotate-container">
+  <div class="rotating">
+    <div class="face">
+      <button class="button-primary button-block i_want_this_button">
+	¡Quiero esto!
+      </button>
+    </div>
+    <div class="face back">
+      <button class="button button-primary quick_action_button">Pagar y suscribir</button>
+    </div>
+  </div>
+</div>
+</div>
+</div>
+<div class="product-info url" id="main-product-pane">
+
+<ul>
+<li class="summary">
+  Una suscripción mensual. 
+</li>
+<div id="product-custom-attributes">
+</div>
+</ul>
+</div>
+
+<div class="clear"></div>
+</div>
+
+</div>
+</div>
+
+</div>
+
+<div class="buy-form-main relative">
+
+<!--<a href="#" class="button button-close changed_mind_button"><i class="icn close"></i></a>--> 
+<div class="payment-container">
+
+
+<form accept-charset="UTF-8" action="" id="card-form" class="purchase_form formtastic purchase" method="post" novalidate="novalidate"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="&#x2713;" /><input name="authenticity_token" type="hidden" value="jUIo6vpmQKVIh9gN5y0ZqNq8Cgrm4tKUC24bti5D1yA=" /></div>
+
+<p class="subscription-notice" data-logged-in-notice="Suscribirse a este producto. ">
+<strong>Crear una cuenta para suscribirse. </strong>
+Podrás cancelar en cualquier momento. 
+</p>
+
+<div class="envelope">
+
+<p class="email-p relative">
+<input type="email" placeholder="Tu dirección de correo electrónico" name="email" class="first email required" />
+</p>
+
+<p class="js-password-p">
+  <input type="password" placeholder="Contraseña" name="password" class="password required" />
+</p>
+
+
+<div class="mini-rule gift-element soft-hidden"></div>
+
+<p class="gift-element soft-hidden">
+<label for="giftee_email">Información del regalo:</label>
+<input type="email" placeholder="Dirección de correo electrónico del destinatario" name="giftee_email" class="email" />
+<textarea type="text" placeholder="Un mensaje personalizado (opcional)" name="gift_note"></textarea>
+</p>
+
+<ul id="custom-fields">
+</ul>
+
+
+<div id="full-name-on-credit-card-container" class="js-full-name-field">
+  <div class="mini-rule"></div>
+  <p>
+    <input type="text" placeholder="Nombre completo en la tarjeta de crédito"  data-conekta="card[name]" class="full_name required js-full-name-input" />
+  </p>
+</div>
+</div>
+
+<div class="credit_card_holder ">
+<div class="card_error_popup hidden"><span class="message"> </span><span class="card_error_popup_arrow arrow"></span></div>
+<div class="remembered credit_card test_card soft-hidden">
+<div class="stripe-card-info">
+<span class="generic_card card_icon flipped" style="opacity: 1;"></span>
+<h4>Detalles del pago</h4>
+</div>
+<p>
+<div class="center-outside-div">
+  <div class="center-inside-div">
+    <span class="preset_cc_input preset_cc_number">&middot;&middot;&middot;&middot; &middot;&middot;&middot;&middot; &middot;&middot;&middot;&middot; 4242</span>
+  </div>
+</div>
+</p>
+
+<span class="test_card_notice">Probar tarjeta</span>
+
+<p class="expiry_date_p">
+<label for="expiry_month" class="preset">Válido hasta</label>
+<span class="preset_cc_input">05/14</span>
+</p>
+</div>
+
+<!-- SAVED CARD -->
+<div class="remembered credit_card saved_card soft-hidden">
+<div class="stripe-card-info">
+<span class=" card_icon flipped" style="opacity: 1;"></span>
+<h4>Detalles del pago</h4>
+</div>
+
+<p>
+<div class="center-outside-div">
+<div class="center-inside-div">
+  <span class="preset_cc_input preset_cc_number"></span>
+</div>
+</div>
+</p>
+
+<a href="#" class="use_different_card">¿Usas una tarjeta diferente?</a>
+
+<p class="expiry_date_p">
+<label for="expiry_month" class="preset">Válido hasta</label>
+<span class="preset_cc_input"></span>
+</p>
+</div>
+
+<!--- NEW CARD -->
+<div class="new-card credit_card  ">
+<div class="conekta-card-info stripe-card-info">
+<div class="cards">
+<span class="generic_card card_icon selected_card_icon flipped"></span>
+<span class="visa card_icon placeholder_card_icon" style="opacity: 1;"></span>
+<span class="mastercard card_icon placeholder_card_icon" style="opacity: 1;"></span>
+<span class="amex card_icon placeholder_card_icon" style="opacity: 1;"></span>
+<span class="jcb card_icon placeholder_card_icon" style="opacity: 1;"></span>
+<span class="fade"></span>
+</div>
+
+<h4>Detalles del pago</h4>
+</div>
+
+<p>
+<label for="cc_number">Número de tarjeta</label>
+<span class="cc_number_security_indicator"></span>
+<span class="cc_security_blurb">No guardamos ninguna información confidencial de tu tarjeta de crédito en nuestros archivos a menos que nos los pidas después de haber finalizado esta compra. </span>
+<input type="tel" pattern="\d*" x-autocompletetype="cc-number" placeholder="1234 5678 9012 3456" name="cc_number" maxlength="19" class="cc_number numeric-spaces required" />
+</p>
+
+<p class="expiry_date_p">
+<label for="expiry_date" style="width: 150px;">Fecha de caducidad</label>
+<input type="tel" pattern="\d*" x-autocompletetype="cc-exp" data-conekta="card[exp_month]" placeholder="MM" class="expiry_date numeric required" />
+<input type="tel" pattern="\d*" x-autocompletetype="cc-exp" placeholder="YY" data-conekta="card[exp_year]" class="expiry_date numeric required" />
+</p>
+
+<p class="cv_code_p">
+<label for="cv_code">Código CVV</label>
+<input type="tel" pattern="\d*" x-autocompletetype="cc-csc" placeholder="123" autocomplete="off" name="cvc" maxlength="4" class="cv_code numeric required" />
+</p>
+</div>
+</div>
+
+
+
+
+<div class="pay_button_container">
+<div class="mini-rule soft-hidden"></div>
+
+<button class="button button-primary pay_button">Pagar y suscribir</button>
+</div>
+</form>
+<div class="receipt_container ">
+<div class="receipt_hole"></div>
+<div class="receipt_shadow"></div>
+<div class="receipt">
+<h4>
+¡Gracias!
+<div class="clear"></div>
+</h4>
+
+<ul class="receipt-entries"></ul>
+
+<div class="js-receipt-custom-text soft-hidden">
+<p> 
+
+</p>
+</div>
+
+
+
+
+<div class="receipt_bottom"></div>
+</div> <!-- receipt -->
+
+<div class="under-receipt-notices soft-hidden">
+<p class="emailed-link-notice">Pueden enviarte un correo electrónico en el futuro. <a href="#" class="unsubscribe_link">Cancelar la inscripción</a></p>
+</div>
+</div> <!-- receipt container -->
+
+
+<div class="clear"></div>
+</div> <!-- payment container-->
+<div class="clear"></div>
+
+</div>
+
+ 
+
+</div>
+</div>
+</div> <!-- relative -->
+
+<div id="powered-by-footer" >
+<span class="lock"></span> Powered By <!-- <span class='g'></span> -->
+
+<a href='http://conekta.io ' target='_blank'> Conekta</a>
+</div>
+
+ 
+</div>
+
+
+ 
+
+<script>
+
+
+$(".i_want_this_button").bind("click", function(e) {
+$(".product-main").css("height", 0);
+$(".buy-form-main").css("height", 565);
+$(".credit_card_holder").css("opacity", "1").addClass("usable")
+
+});
+
+</script>
+ 
+				
+
+
+
+
+
+
