@@ -1,5 +1,5 @@
 <% content_for :head do %>
-  <%= tag :meta, :name => "stripe-key", :content => STRIPE_PUBLIC_KEY %>
+  <%= tag :meta, :name => "stripe-key", :content => CONEKTA_PUBLIC_KEY %>
 <% end %>
 <h2>Sign up</h2>
 <div id="stripe_error" class="alert alert-error" style="display:none" >
@@ -18,7 +18,8 @@
   <% else %>
     <div class="field">
       <%= label_tag :card_number, "Credit Card Number" %>
-      <%= text_field_tag :card_number, nil, name: nil %>
+
+<input id="card_number" type="text">
     </div>
     <div class="field">
       <%= label_tag :card_code, "Card Security Code (CVV)" %>

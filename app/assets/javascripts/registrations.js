@@ -1,39 +1,41 @@
-$('.registrations').ready(function() {
-  $.externalScript('https://js.stripe.com/v1/').done(function(script, textStatus) {
-      Stripe.setPublishableKey($('meta[name="stripe-key"]').attr('content'));
-      var subscription = {
-        setupForm: function() {
-          return $('.card_form').submit(function() {
-            $('input[type=submit]').prop('disabled', true);
-            if ($('#card_number').length) {
-              subscription.processCard();
-              return false;
-            } else {
-              return true;
-            }
-          });
-        },
-        processCard: function() {
-          var card;
-          card = {
-            name: $('#user_name').val(),
-            number: $('#card_number').val(),
-            cvc: $('#card_code').val(),
-            expMonth: $('#card_month').val(),
-            expYear: $('#card_year').val()
-          };
-          return Stripe.createToken(card, subscription.handleStripeResponse);
-        },
-        handleStripeResponse: function(status, response) {
-          if (status === 200) {
-            $('#user_stripe_token').val(response.id)
-            $('.card_form')[0].submit()
-          } else {
-            $('#stripe_error').text(response.error.message).show();
-            return $('input[type=submit]').prop('disabled', false);
-          }
-        }
-      };
-      return subscription.setupForm();
+
+
+var conektaSuccessResponseHandler = function(response) {
+  var $form = $('#card-form');
+
+    var token_id = response.id;
+    // Insert the token_id into the form so it gets submitted to the server
+    $form.append($('<input type="hidden" name="conektaTokenId" />').val(token_id));
+    // and submit
+    $form.get(0).submit();
+};
+
+
+var conektaErrorResponseHandler = function(response) {
+  var $form = $('#card-form');
+
+   // Show the errors on the form
+    $form.find('.card-errors').text(response.message);
+    $form.find('button').prop('disabled', false);
+};
+
+jQuery(function($) {
+
+        Conekta.setPublishableKey($('meta[name="conekta-key"]').attr('content'));
+
+
+ $('#card-form').submit(function(event) {
+    var $form = $(this);
+
+    // Prevent the boton from submitting multiple times
+    $form.find('button').prop('disabled', true);
+
+    Conekta.token.create($form, conektaSuccessResponseHandler, conektaErrorResponseHandler);
+
+    // Prevent form information from being sent to the server 
+    return false;
   });
+
+
+
 });

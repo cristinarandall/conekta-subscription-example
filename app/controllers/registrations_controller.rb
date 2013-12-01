@@ -2,11 +2,15 @@ class RegistrationsController < Devise::RegistrationsController
 
   def new
     @plan = params[:plan]
-    if @plan && ENV["ROLES"].include?(@plan) && @plan != "admin"
-      super
-    else
-      redirect_to root_path, :notice => 'Please select a subscription plan below.'
-    end
+#    if @plan && ENV["ROLES"].include?(@plan) && @plan != "admin"
+#      super
+#    else
+#      redirect_to root_path, :notice => 'Please select a subscription plan below.'
+#    end
+
+render :layout => 'subscribe', :template=>'layouts/subscribe'
+
+
   end
 
   def update_plan

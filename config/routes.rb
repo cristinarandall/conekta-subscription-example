@@ -1,12 +1,14 @@
 RailsStripeMembershipSaas::Application.routes.draw do
-  mount StripeEvent::Engine => '/stripe'
+ # mount StripeEvent::Engine => '/stripe'
   get "content/gold"
   get "content/silver"
   get "content/platinum"
   authenticated :user do
     root :to => 'home#index'
   end
-  root :to => "home#index"
+
+ root :to => "home#index"
+    match '' => 'registrations#new'
   devise_for :users, :controllers => { :registrations => 'registrations' }
   devise_scope :user do
     put 'update_plan', :to => 'registrations#update_plan'
