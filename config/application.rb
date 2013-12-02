@@ -17,7 +17,7 @@ end
 
 module RailsConektaMembershipSaas
   class Application < Rails::Application
-#    config.cookie_secret = '3b161f7668f938d1aeb73e1137964f8d5ebaf32b9173c2130ecb73b95b610702b77370640dce7e76700fb228f35f7865ab2a5ccd22d00563504a2ea9c3d8dffe'  
+   # config.cookie_secret = '3b161f7668f938d1aeb73e1137964f8d5ebaf32b9173c2130ecb73b95b610702b77370640dce7e76700fb228f35f7865ab2a5ccd22d00563504a2ea9c3d8dffe'  
     # don't generate RSpec tests for views and helpers
     config.generators do |g|
       

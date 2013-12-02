@@ -5,7 +5,8 @@
 # If you change this key, all old signed cookies will become invalid!  
 # Make sure the secret is at least 30 characters and all random,   
 # no regular words or you'll be exposed to dictionary attacks.  
-Rails.application.config.cookie_secret = "e6549becc330029388391e82d9b1343772fe02e44246534b6589eff1496cb7ef3c86ba7ec960e943f189d9b013c006ce24503bf8e674fb5fe75c089c05286bb9"
+Rails.application.config.secret_token = "aeb63a702f1fb01b767689f2aeb596ad77afcdf5d22d08699b222b84e192e3b53cddc77e25a3b2af1765ab3dba1828ee5e9e8a9c5401c93896b7a39fb9004079"
+
 
 # "#{ActiveSupport::SecureRandom.hex(64)}"
 
