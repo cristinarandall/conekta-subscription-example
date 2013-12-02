@@ -16,6 +16,8 @@ var conektaErrorResponseHandler = function(response) {
 
    // Show the errors on the form
     $form.find('.card-errors').text(response.message);
+$(".card_error_popup").removeClass("hidden");
+$(".card_error_popup .message").html(response.message)
     $form.find('button').prop('disabled', false);
 };
 
