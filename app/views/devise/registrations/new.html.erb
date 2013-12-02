@@ -1,5 +1,5 @@
 <% content_for :head do %>
-  <%= tag :meta, :name => "stripe-key", :content => CONEKTA_PUBLIC_KEY %>
+  <%= tag :meta, :name => "conekta-key", :content => CONEKTA_PUBLIC_KEY %>
 <% end %>
 <h2>Sign up</h2>
 <div id="conekta_error" class="alert alert-error" style="display:none" >
@@ -34,6 +34,6 @@
       <%= f.input :coupon, :label => 'Promotional Coupon (if any)' %>
     </div>
   <% end %>
-  <%= f.hidden_field :stripe_token %>
+  <%= f.hidden_field :conekta_token %>
   <%= f.button :submit, 'Sign up', :class => 'btn-primary' %>
 <% end %>
