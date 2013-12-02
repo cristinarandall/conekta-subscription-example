@@ -5,11 +5,11 @@ var conektaSuccessResponseHandler = function(response) {
 
     var token_id = response.id;
     // Insert the token_id into the form so it gets submitted to the server
+alert(token_id)
     $form.append($('<input type="hidden" name="conektaTokenId" />').val(token_id));
     // and submit
     $form.get(0).submit();
 };
-
 
 var conektaErrorResponseHandler = function(response) {
   var $form = $('#card-form');
