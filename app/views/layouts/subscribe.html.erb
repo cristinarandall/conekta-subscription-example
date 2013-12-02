@@ -260,7 +260,7 @@ $(window).load(function() {
 <form accept-charset="UTF-8" action="/users" class="purchase_form formtastic purchase" method="post" novalidate="novalidate"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="&#x2713;" /><input name="authenticity_token" type="hidden" value="jUIo6vpmQKVIh9gN5y0ZqNq8Cgrm4tKUC24bti5D1yA=" /></div>
 <div class="envelope small">
   <p class="email-p relative">
-    <input type="email" placeholder="Tu dirección de correo electrónico" name="email" class="first email required" />
+    <input type="email" placeholder="Tu dirección de correo electrónico" name="user[email]" class="first email required" />
   </p>
 </div>
 
@@ -488,11 +488,11 @@ Podrás cancelar en cualquier momento.
 <div class="envelope">
 
 <p class="email-p relative">
-<input type="email" placeholder="Tu dirección de correo electrónico" name="email" class="first email required" />
+<input type="email" placeholder="Tu dirección de correo electrónico" name="user[email]" class="first email required" />
 </p>
 
 <p class="js-password-p">
-  <input type="password" placeholder="Contraseña" name="password" class="password required" />
+  <input type="password" placeholder="Contraseña" name="user[password]" class="password required" />
 </p>
 
 
@@ -511,7 +511,7 @@ Podrás cancelar en cualquier momento.
 <div id="full-name-on-credit-card-container" class="js-full-name-field">
   <div class="mini-rule"></div>
   <p>
-    <input type="text" placeholder="Nombre completo en la tarjeta de crédito"  data-conekta="card[name]" class="full_name required js-full-name-input" />
+    <input type="text" placeholder="Nombre completo en la tarjeta de crédito" name="user[name]" data-conekta="card[name]" class="full_name required js-full-name-input" />
   </p>
 </div>
 </div>
