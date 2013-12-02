@@ -27,6 +27,20 @@ class User < ActiveRecord::Base
   end
   
   def update_conekta
+
+puts "-----email-----"
+puts email
+puts "-----/email-----"
+
+
+puts "-----conekta_token-----"
+puts conekta_token
+puts "-----/conekta_token-----"
+
+puts "-----name-----"
+puts name
+puts "-----/name-----"
+
     return if email.include?(ENV['ADMIN_EMAIL'])
     return if email.include?('@example.com') and not Rails.env.production?
     if customer_id.nil?
@@ -37,8 +51,8 @@ class User < ActiveRecord::Base
         customer = Conekta::Customer.create(
           :email => email,
           :description => name,
-          :card => conekta_token,
-          :plan => roles.first.name
+          :card => conekta_token
+#          :plan => roles.first.name
         )
       else
         customer = Conekta::Customer.create(
