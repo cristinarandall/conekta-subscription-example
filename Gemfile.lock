@@ -1,8 +1,9 @@
 GIT
   remote: git://github.com/conekta/conekta-ruby.git
-  revision: 3474aead3530b1b57d125533dc93dc2c334497f2
+  revision: e2cea0d0eb0a3e1ebe8511e81bc5f0ed25ccdade
+  branch: subscriptions
   specs:
-    conekta (0.2.0)
+    conekta (0.3.0)
       multi_json (>= 1.0.4, < 2)
       rest-client (~> 1.4)
 
