@@ -69,7 +69,7 @@ puts "-----/name-----"
       customer.save
     end
     if customer.cards && customer.cards[0]
-    self.last_4_digits = customer.cards.data.first["last4"]
+    self.last_4_digits = customer.cards[0].last4
     end
 
     self.customer_id = customer.id
