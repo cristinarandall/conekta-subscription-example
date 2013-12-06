@@ -6,6 +6,11 @@ class ApplicationController < ActionController::Base
   end
 
   def after_sign_in_path_for(resource)
+
+
+   if current_user.roles.empty?
+        content_platinum_path
+   else
     case current_user.roles.first.name
       when 'admin'
         users_path
@@ -17,7 +22,11 @@ class ApplicationController < ActionController::Base
         content_platinum_path
       else
         root_path
+      end
+
     end
+
+
   end
   
 end
