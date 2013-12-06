@@ -55,7 +55,7 @@ puts "-----/name-----"
           :description => name,
           :name => name,
           :cards => card_array,
-          :plan => 'gold-plan',
+          :plan => 'silver-plan',
         )
 	puts "-----customer-----"
 	puts customer
