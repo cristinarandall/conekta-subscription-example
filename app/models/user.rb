@@ -54,7 +54,7 @@ puts "-----/name-----"
           :email => email,
           :description => name,
           :name => name,
-          :card => card_array,
+          :cards => card_array,
           :plan => 'gold-plan',
         )
 	puts "-----customer-----"
