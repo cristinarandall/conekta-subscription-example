@@ -43,6 +43,8 @@ puts "-----/name-----"
 
     if customer_id.nil?
 
+      puts "Creating the account------------" 
+
       card_array = []
       card_array << conekta_token
       #if !conekta_token.present?
@@ -55,6 +57,8 @@ puts "-----/name-----"
           :card => card_array,
           :plan => 'gold-plan',
         )
+	puts "-----customer-----"
+	puts customer
     else
       customer = Conekta::Customer.retrieve(customer_id)
       if conekta_token.present?
