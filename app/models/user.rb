@@ -51,8 +51,9 @@ puts "-----/name-----"
         customer = Conekta::Customer.create(
           :email => email,
           :description => name,
+          :name => name,
           :card => conekta_token
-#          :plan => roles.first.name
+          :plan => 'gold-plan'
         )
       else
         customer = Conekta::Customer.create(
