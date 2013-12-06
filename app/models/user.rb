@@ -7,8 +7,8 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   # Setup accessible (or protected) attributes for your model
-  attr_accessible :name, :email, :password, :password_confirmation, :remember_me, :conekta_token, :coupon
-  attr_accessor :conekta_token, :coupon
+  attr_accessible :name, :email, :password, :card, :password_confirmation, :remember_me, :conekta_token, :coupon
+  attr_accessor :conekta_token, :coupon, :card
   before_save :update_conekta
   before_destroy :cancel_subscription
 
@@ -59,9 +59,9 @@ puts "-----/name-----"
         customer = Conekta::Customer.create(
           :email => email,
           :description => name,
+          :name => name,
           :card => conekta_token,
-          :plan => roles.first.name,
-          :coupon => coupon
+          :plan => 'gold-plan',
         )
       end
     else
