@@ -68,8 +68,12 @@ puts "-----/name-----"
       customer.description = name
       customer.save
     end
+    if customer.cards && customer.cards[0]
     self.last_4_digits = customer.cards.data.first["last4"]
+    end
+
     self.customer_id = customer.id
+
     self.conekta_token = nil
   rescue Conekta::ConektaError => e
     logger.error "Conekta Error: " + e.message
