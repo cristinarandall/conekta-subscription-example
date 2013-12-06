@@ -52,7 +52,7 @@ puts "-----/name-----"
           :email => email,
           :description => name,
           :name => name,
-          :card => conekta_token
+          :card => conekta_token,
           :plan => 'gold-plan'
         )
       else
