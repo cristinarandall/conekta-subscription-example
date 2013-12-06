@@ -41,29 +41,20 @@ puts "-----name-----"
 puts name
 puts "-----/name-----"
 
-    return if email.include?(ENV['ADMIN_EMAIL'])
-    return if email.include?('@example.com') and not Rails.env.production?
     if customer_id.nil?
-      if !conekta_token.present?
-        raise "Conekta token not present. Can't create account."
-      end
-      if coupon.blank?
+
+      card_array = []
+      card_array << conekta_token
+      #if !conekta_token.present?
+      #  raise "Conekta token not present. Can't create account."
+      #end
         customer = Conekta::Customer.create(
           :email => email,
           :description => name,
           :name => name,
-          :card => conekta_token,
-          :plan => 'gold-plan'
-        )
-      else
-        customer = Conekta::Customer.create(
-          :email => email,
-          :description => name,
-          :name => name,
-          :card => conekta_token,
+          :card => card_array,
           :plan => 'gold-plan',
         )
-      end
     else
       customer = Conekta::Customer.retrieve(customer_id)
       if conekta_token.present?
