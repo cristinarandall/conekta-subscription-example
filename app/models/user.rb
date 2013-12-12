@@ -28,37 +28,25 @@ class User < ActiveRecord::Base
   
   def update_conekta
 
-puts "-----email-----"
-puts email
-puts "-----/email-----"
-
-
-puts "-----conekta_token-----"
-puts conekta_token
-puts "-----/conekta_token-----"
-
-puts "-----name-----"
-puts name
-puts "-----/name-----"
-
     if customer_id.nil?
 
       puts "Creating the account------------" 
 
       card_array = []
       card_array << conekta_token
-      #if !conekta_token.present?
-      #  raise "Conekta token not present. Can't create account."
-      #end
+      if !conekta_token.present?
+        raise "Conekta token not present. Can't create account."
+      end
         customer = Conekta::Customer.create(
           :email => email,
           :description => name,
           :name => name,
           :cards => card_array,
-          :plan => 'silver-plan',
+          :plan => 'silver-plan', #silver plan already created
         )
 	puts "-----customer-----"
 	puts customer
+
     else
       customer = Conekta::Customer.retrieve(customer_id)
       if conekta_token.present?
