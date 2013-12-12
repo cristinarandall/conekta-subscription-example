@@ -9,3 +9,9 @@ Vas a ver las llaves en tu cuenta en la seccion de "API Keys"
 
 <img src="https://s3.amazonaws.com/conekta/ejemplos/api_keys.png" />
 
+Para usar pagos recurrentes, hay que incluir la gema en el archivo Gemfile:
+
+gem 'conekta', :git => 'git://github.com/conekta/conekta-ruby.git',  :branch => 'subscriptions'
+
+
+
