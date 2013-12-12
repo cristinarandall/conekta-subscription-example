@@ -13,7 +13,9 @@ La llave privada usamos para las llamadas server side y la llave publica es lo q
 
 Para usar pagos recurrentes, hay que incluir la gema en el archivo Gemfile:
 
+<code>
 gem 'conekta', :git => 'git://github.com/conekta/conekta-ruby.git',  :branch => 'subscriptions'
+</code>
 
 La primera parte es tokenizar los datos de la tarjeta usando <a href="https://conektaapi.s3.amazonaws.com/v0.3.0/js/conekta.js"> Conekta.js </a>. Estos son los datos que usamos en la forma para crear un token. 
 
@@ -24,9 +26,7 @@ Hay un tutorial sobre los detalles de este flujo <a href="https://admin.conekta.
 Una vez que tengas el token de la tarjeta, hay que mandar el token al servidor. Con este token puedes crear un cliente (y cobrar el cliente despues), implementar un cargo unico o crear una suscripción (asignando al cliente un plan). 
 
 En este ejemplo, creamos un cliente con el token y en el mismo paso asignamos un plan para este cliente (este plan ya está definido).
-
 <code>
-
         customer = Conekta::Customer.create(
           :email => email,
           :description => name,
@@ -34,7 +34,6 @@ En este ejemplo, creamos un cliente con el token y en el mismo paso asignamos un
           :cards => card_array,
           :plan => 'silver-plan', #silver plan already created
         )
-
 </code>
 
 
