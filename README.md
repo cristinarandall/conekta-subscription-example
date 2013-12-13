@@ -40,7 +40,11 @@ En este ejemplo, creamos un cliente con el token y en el mismo paso asignamos un
 
 </code>
 
-Una vez que tengas el webhook configurado en el panel de administración, puedes implementar el flujo de cada <a href="https://admin.conekta.io/en/docs/api_v030#events"> evento</a> importante para una suscripción.
+Una vez que tengas el webhook configurado en el panel de administración, 
+
+<img src="https://s3.amazonaws.com/conekta/ecommerce/images/webhook.png" /> 
+
+puedes implementar el flujo de cada <a href="https://admin.conekta.io/en/docs/api_v030#events"> evento</a> importante para una suscripción.
 
 Puedes ver el ejemplo funcionando <a href="http://pagos-recurrentes.herokuapp.com/"> aqui </a>
 
