@@ -2,10 +2,13 @@ RailsConektaMembershipSaas::Application.routes.draw do
   get "content/gold"
   get "content/silver"
   get "content/platinum"
+
+
   authenticated :user do
     root :to => 'home#index'
   end
 
+  match 'webhooks' => 'webhooks#index'
  root :to => "home#index"
     match '' => 'registrations#new'
   devise_for :users, :controllers => { :registrations => 'registrations' }
