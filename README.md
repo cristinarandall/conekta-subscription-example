@@ -42,7 +42,7 @@ En este ejemplo, creamos un cliente con el token y en el mismo paso asignamos un
 
 Una vez que tengas el webhook configurado en el panel de administración, 
 
-<img src="https://s3.amazonaws.com/conekta/ecommerce/images/webhook.png" /> 
+<img src="https://s3.amazonaws.com/conekta/ecommerce/images/webhook.png" style="width:500px;"/> 
 
 puedes implementar el flujo de cada <a href="https://admin.conekta.io/en/docs/api_v030#events"> evento</a> importante para una suscripción.
 
