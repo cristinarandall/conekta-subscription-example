@@ -13,5 +13,6 @@ ADMIN_NAME: First User
 ADMIN_EMAIL: cristina@conekta.io
 ADMIN_PASSWORD: changeme
 ROLES: [admin, silver, gold, platinum]
-CONEKTA_API_KEY: "key_tmKnRFNsXTLMPEjS"
-CONEKTA_PUBLIC_KEY: "key_ZrVULPmZPyRP7khd"
+CONEKTA_PLAN: "silver-plan"
+CONEKTA_API_KEY: "key_bPW6QwU2m1SkPnUh"
+CONEKTA_PUBLIC_KEY: "key_PLi1RZCxDc7znfkS"
